@@ -5,5 +5,8 @@ export const fetchMovies = (page) => {
     .then((res) => res.json())
     .then((res) => {
       return mapAttributes(res, "movies");
+    })
+    .catch((error) => {
+      return [];
     });
 };

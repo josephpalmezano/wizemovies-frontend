@@ -35,6 +35,10 @@ class InfiniteScroll extends Component {
     }
   };
 
+  getRandomRating = () => {
+    return Math.round((Math.random() * (5 - 1) + 1) * 10) / 10;
+  };
+
   getMovies = async (pageNum) => {
     let data = await fetchMovies(pageNum);
     console.log(data);
@@ -49,7 +53,9 @@ class InfiniteScroll extends Component {
       <div style={{ width: "90%", margin: "0 auto" }}>
         <div>
           {this.state.isLoading && <p>Loading...</p>}
-          {!this.state.movies.length && <p>No results</p>}
+          {!this.state.isLoading && !this.state.movies.length && (
+            <p>No results</p>
+          )}
           {this.state.movies.map((movie, i) => {
             return (
               <div key={i} className="card hovers">
@@ -75,7 +81,7 @@ class InfiniteScroll extends Component {
                           fontWeight: 500
                         }}
                       >
-                        5.0
+                        {this.getRandomRating()}
                       </p>
                       <br></br>
                       <a href="#!" className="hovers">
