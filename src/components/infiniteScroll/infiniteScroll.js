@@ -46,41 +46,53 @@ class InfiniteScroll extends Component {
 
   render() {
     return (
-      <div className="container">
-        {this.state.isLoading && <p>Loading...</p>}
-        {!this.state.movies.length && <p>No results</p>}
-        {this.state.movies.map((movie, i) => {
-          return (
-            <div key={i} className="card hovers">
-              <div
-                className="card-img"
-                style={{
-                  backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.poster_url})`
-                }}
-              >
-                <div className="overlay">
-                  <div className="overlay-content">
-                    <span
-                      role="img"
-                      aria-label="rating"
-                      className="rating-star"
-                    >
-                      &#11088;
-                    </span>
-                    <p className="rating">5.0</p>
-                    <br></br>
-                    <p className="hovers">Add a Review</p>
+      <div style={{ width: "90%", margin: "0 auto" }}>
+        <div>
+          {this.state.isLoading && <p>Loading...</p>}
+          {!this.state.movies.length && <p>No results</p>}
+          {this.state.movies.map((movie, i) => {
+            return (
+              <div key={i} className="card hovers">
+                <div
+                  className="card-img"
+                  style={{
+                    backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.poster_url})`
+                  }}
+                >
+                  <div className="overlay">
+                    <div className="overlay-content">
+                      <span
+                        role="img"
+                        aria-label="rating"
+                        style={{ padding: 0 }}
+                      >
+                        &#11088;
+                      </span>
+                      <p
+                        style={{
+                          marginTop: "-3.5rem",
+                          fontSize: "1.35rem",
+                          fontWeight: 500
+                        }}
+                      >
+                        5.0
+                      </p>
+                      <br></br>
+                      <a href="#!" className="hovers">
+                        Add a Review
+                      </a>
+                    </div>
                   </div>
                 </div>
+                <div className="card-content">
+                  <a href="#!">
+                    <h2>{movie.title}</h2>
+                  </a>
+                </div>
               </div>
-              <div className="card-content">
-                <a href="#!">
-                  <h2>{movie.title}</h2>
-                </a>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     );
   }
