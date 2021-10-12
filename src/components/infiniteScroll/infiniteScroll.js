@@ -8,7 +8,8 @@ class InfiniteScroll extends Component {
 
     this.state = {
       movies: [],
-      page: 1
+      page: 1,
+      isLoading: true
     };
   }
 
@@ -38,13 +39,15 @@ class InfiniteScroll extends Component {
     let data = await fetchMovies(pageNum);
     console.log(data);
     this.setState({
-      movies: [...this.state.movies, ...data]
+      movies: [...this.state.movies, ...data],
+      isLoading: false
     });
   };
 
   render() {
     return (
       <div className="container">
+        {this.state.isLoading && <p>Loading...</p>}
         {!this.state.movies.length && <p>No results</p>}
         {this.state.movies.map((movie, i) => {
           return (
