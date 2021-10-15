@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { fetchMovies } from "./../../api/MovieAPI";
 import "./infiniteScroll.css";
+import { Link } from "react-router-dom";
 
 class InfiniteScroll extends Component {
   constructor(props) {
@@ -19,7 +20,6 @@ class InfiniteScroll extends Component {
   };
 
   infiniteScroll = () => {
-    console.log("page: " + this.state.page);
     // End of the document reached?
     if (
       window.innerHeight + document.documentElement.scrollTop ===
@@ -41,7 +41,6 @@ class InfiniteScroll extends Component {
 
   getMovies = async (pageNum) => {
     let data = await fetchMovies(pageNum);
-    console.log(data);
     this.setState({
       movies: [...this.state.movies, ...data],
       isLoading: false
@@ -84,9 +83,9 @@ class InfiniteScroll extends Component {
                         {this.getRandomRating()}
                       </p>
                       <br></br>
-                      <a href="#!" className="hovers">
+                      <Link className="hovers" to={`/reviews/${movie.id}`}>
                         Add a Review
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

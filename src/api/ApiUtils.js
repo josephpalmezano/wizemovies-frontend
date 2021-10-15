@@ -3,6 +3,8 @@ const mapAttributes = (response, objectType) => {
 
   if (objectType === "movies") {
     result = response.data.data.map((data) => data.attributes);
+  } else if (objectType === "movie") {
+    result = response.data.data.attributes;
   }
 
   return result;

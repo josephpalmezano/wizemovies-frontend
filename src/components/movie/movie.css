@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+}
+#container {
+  border: 1px solid grey;
+  position: relative;
+}
+.movie-card {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.movie-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.movie-details {
+  padding: 1.5rem;
+}
+
+.movie-title {
+  font-size: 180%;
+  line-height: 1.4;
+  color: #121212;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.genre-pill {
+  list-style-type: none;
+  padding: 0;
+}
+
+.genre-pill > li {
+  display: inline;
+  color: blueviolet;
+  font-weight: bold;
+}
+
+.genre-pill > li::after {
+  content: ", ";
+}
+
+.genre-pill > li:last-child::after {
+  content: "";
+}
+
+.movie-rating {
+  font-size: 1rem;
+  margin: 1.125rem 0 0 0;
+  padding: 1.125rem 0 0 0;
+  color: tomato;
+  font-weight: bold;
+}
+
+@media (max-width: 40rem) {
+  #container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .movie-card {
+    flex-wrap: wrap;
+  }
+}
+@supports (display: grid) {
+  .movie-card {
+    display: grid;
+  }
+
+  #container {
+    grid-area: main;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .movie-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .movie-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+  }
+
+  @media (max-width: 40rem) {
+    .movie-card {
+      grid-template-columns: auto;
+      grid-template-rows: 12rem 1fr;
+    }
+  }
+}

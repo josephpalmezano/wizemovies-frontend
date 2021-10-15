@@ -10,3 +10,14 @@ export const fetchMovies = (page) => {
       return [];
     });
 };
+
+export const fetchMovie = (movieId) => {
+  return fetch(`${API_URL}/movies/${movieId}`)
+    .then((res) => res.json())
+    .then((res) => {
+      return mapAttributes(res, "movie");
+    })
+    .catch((error) => {
+      return {};
+    });
+};
