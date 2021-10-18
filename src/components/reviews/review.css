@@ -1,0 +1,105 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.cf {
+  display: table;
+  clear: both;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mla,
+.mla-m,
+.mla-l,
+.mla-ns {
+  margin-left: auto !important;
+}
+
+.mra,
+.mra-m,
+.mra-l,
+.mra-ns {
+  margin-right: auto !important;
+}
+
+.valign-child {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px #eee;
+  display: block;
+  height: 100%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+}
+.card h1,
+.card p {
+  margin: 0;
+}
+.card p {
+  color: #888;
+}
+
+body {
+  background-color: #fbfdfe;
+}
+
+#qa {
+  width: 100%;
+  display: flex;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+#feed {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px auto;
+}
+.question-card {
+  border: 1px solid blue;
+  width: 100%;
+}
+
+#feed .question-card.card .question-title {
+  margin-bottom: 10px;
+}
+#feed .question-card.card .question-title .permalink {
+  color: gold;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#sidebar-qa-links {
+  position: fixed;
+}
+#sidebar-qa-links a {
+  border-radius: 2.5px;
+  color: #ddd;
+  display: block;
+  padding: 10px 25px;
+  letter-spacing: 0.1rem;
+  opacity: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.35s all ease;
+}

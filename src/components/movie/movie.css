@@ -9,7 +9,7 @@ body {
   display: flex;
 }
 #container {
-  border: 1px solid grey;
+  border: 1px solid #eeeeee;
   position: relative;
 }
 .movie-card {
@@ -42,7 +42,7 @@ body {
 
 .genre-pill > li {
   display: inline;
-  color: blueviolet;
+  color: #ecaa1a;
   font-weight: bold;
 }
 
@@ -58,7 +58,7 @@ body {
   font-size: 1rem;
   margin: 1.125rem 0 0 0;
   padding: 1.125rem 0 0 0;
-  color: tomato;
+  color: #d32f2f;
   font-weight: bold;
 }
 
