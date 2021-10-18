@@ -44,7 +44,7 @@ class Reviews extends Component {
           return (
             <div key={i}>
               <Review
-                rating={review.rating}
+                rating={`${review.rating}.0`}
                 content={review.content}
                 userName={review.user_name}
                 title={review.title}

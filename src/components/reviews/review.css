@@ -65,7 +65,6 @@ body {
 #qa {
   width: 100%;
   display: flex;
-  max-width: 48rem;
   margin: 0 auto;
 }
 
@@ -76,7 +75,6 @@ body {
   margin: 10px auto;
 }
 .question-card {
-  border: 1px solid blue;
   width: 100%;
 }
 

@@ -22,8 +22,8 @@ class NewReview extends Component {
 
   componentDidMount = () => {};
 
-  notify = () =>
-    toast.success("👻 Review added!", {
+  notify = (type) => {
+    const options = {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -31,21 +31,37 @@ class NewReview extends Component {
       pauseOnHover: true,
       draggable: true,
       progress: undefined
-    });
+    };
 
-  handleSubmit(event) {
-    postReview(this.state);
-    this.props.reloadReviews();
-    this.notify();
+    switch (type) {
+      case "success":
+        toast.success("👻 Review added!", options);
+        break;
+      case "error":
+        toast.error("🙈 Error.", options);
+        break;
+      default:
+        console.log("toast???");
+    }
+  };
+
+  async handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      userName: "",
-      title: "",
-      content: "",
-      rating: 0,
-      movieId: this.props.movieId
-    });
-    event.target.reset();
+    const res = await postReview(this.state);
+    if (!res.error) {
+      this.notify("success");
+      this.setState({
+        userName: "",
+        title: "",
+        content: "",
+        rating: 0,
+        movieId: this.props.movieId
+      });
+      this.props.reloadReviews();
+      event.target.reset();
+    } else {
+      this.notify("error");
+    }
   }
 
   onChangeValue(event) {

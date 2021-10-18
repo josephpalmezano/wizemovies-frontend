@@ -35,10 +35,6 @@ class InfiniteScroll extends Component {
     }
   };
 
-  getRandomRating = () => {
-    return Math.round((Math.random() * (5 - 1) + 1) * 10) / 10;
-  };
-
   getMovies = async (pageNum) => {
     let data = await fetchMovies(pageNum);
     this.setState({
@@ -57,7 +53,7 @@ class InfiniteScroll extends Component {
           )}
           {this.state.movies.map((movie, i) => {
             return (
-              <div key={i} className="card hovers">
+              <div key={i} className="container-card hovers">
                 <div
                   className="card-img"
                   style={{
@@ -80,7 +76,7 @@ class InfiniteScroll extends Component {
                           fontWeight: 500
                         }}
                       >
-                        {this.getRandomRating()}
+                        {movie.rating}
                       </p>
                       <br></br>
                       <Link className="hovers" to={`/reviews/${movie.id}`}>

@@ -16,10 +16,6 @@ class Movie extends Component {
     this.getMovie(this.props.movieId);
   };
 
-  getRandomRating = () => {
-    return Math.round((Math.random() * (5 - 1) + 1) * 10) / 10;
-  };
-
   getMovie = async (movieId) => {
     let data = await fetchMovie(movieId);
     this.setState({
@@ -46,7 +42,7 @@ class Movie extends Component {
               <span role="img" aria-label="rating">
                 &#11088;&nbsp;&nbsp;&nbsp;
               </span>
-              5.0
+              {this.state.movie.rating}
             </p>
             <ul className="genre-pill">
               {this.state.movie.genres &&

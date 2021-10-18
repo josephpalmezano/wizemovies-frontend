@@ -15,9 +15,7 @@ export const postReview = (data) => {
     },
     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: JSON.stringify(newReview)
-  })
-    .then((res) => res.json())
-    .then((res) => console.log(res));
+  }).then((res) => res.json());
 };
 
 export const fetchReviews = (movieId) => {

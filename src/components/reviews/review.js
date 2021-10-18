@@ -22,7 +22,10 @@ class Review extends Component {
                 <div className="fl">
                   <h1>{this.props.title}</h1>
                 </div>
-                <div className="fr mla">
+                <div
+                  style={{ fontWeight: "bold", color: "#ecaa1a" }}
+                  className="fr mla"
+                >
                   <span className="permalink" role="img" aria-label="rating">
                     &#11088;&nbsp;&nbsp;&nbsp;
                   </span>
@@ -31,7 +34,7 @@ class Review extends Component {
               </div>
               <p>{this.props.content}</p>
               <br />
-              <strong>{this.props.userName}</strong>
+              <strong>By:&nbsp;{this.props.userName}</strong>
             </div>
           </div>
         </div>
